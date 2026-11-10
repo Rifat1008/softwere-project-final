@@ -1,0 +1,7 @@
+#!/bin/sh
+# Linux / macOS version of start_ai.bat
+cd "$(dirname "$0")"
+[ -d venv ] || python3 -m venv venv
+. venv/bin/activate
+pip install -q -r requirements.txt
+python app.py
