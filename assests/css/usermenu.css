@@ -1,0 +1,74 @@
+/* User icon + dropdown. Works on every page (does not depend on the page's CSS). */
+.um { --um-gold:#FFC400; --um-gold-light:#FFE066; --um-deep:#A87400; --um-pale:#FFF8DB; --um-ink:#1f1a08; --um-muted:#6b6540;
+      position:relative; display:inline-block; font-family:inherit; line-height:1.4; text-align:left; }
+.um *, .um *::before, .um *::after { box-sizing:border-box; }
+
+.um-btn { position:relative; width:44px; height:44px; display:grid; place-items:center; padding:0; cursor:pointer;
+          border:2px solid #fff; border-radius:50%; background:linear-gradient(135deg,#FFD83D,var(--um-gold)); color:var(--um-ink);
+          box-shadow:0 6px 18px rgba(168,116,0,.28); transition:transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s; }
+.um-btn svg { width:22px; height:22px; }
+.um-btn:hover { transform:translateY(-2px) scale(1.05); box-shadow:0 10px 24px rgba(168,116,0,.38); }
+.um-btn[aria-expanded="true"] { box-shadow:0 0 0 4px rgba(255,196,0,.35), 0 10px 24px rgba(168,116,0,.38); }
+.um-btn:focus-visible { outline:2px solid var(--um-ink); outline-offset:3px; }
+
+.um-badge { position:absolute; top:-6px; right:-6px; min-width:20px; height:20px; padding:0 5px; display:grid; place-items:center;
+            border-radius:20px; border:2px solid #fff; background:var(--um-ink); color:var(--um-gold); font-size:.68rem; font-weight:700; }
+.um-badge[hidden] { display:none; }
+
+.um-menu { position:absolute; right:0; top:calc(100% + 14px); z-index:2000; width:min(310px, 88vw); padding:16px;
+           background:#fff; border:1px solid rgba(255,196,0,.5); border-radius:24px;
+           box-shadow:0 24px 60px rgba(168,116,0,.22), 0 2px 0 rgba(255,255,255,.8) inset; transform-origin:top right; animation:umPop .35s cubic-bezier(.2,.8,.2,1); }
+.um-menu[hidden] { display:none; }
+.um-menu::before { content:""; position:absolute; top:-8px; right:15px; width:14px; height:14px; background:#fff; transform:rotate(45deg);
+                   border-left:1px solid rgba(255,196,0,.5); border-top:1px solid rgba(255,196,0,.5); }
+@keyframes umPop { from { opacity:0; transform:translateY(-8px) scale(.96); } to { opacity:1; transform:none; } }
+
+.um-head { display:flex; align-items:center; gap:12px; padding-bottom:14px; border-bottom:1px dashed #f0e2a0; }
+.um-avatar { flex:0 0 46px; height:46px; display:grid; place-items:center; border-radius:50%; background:var(--um-gold); color:var(--um-ink); font-weight:800; font-size:1.2rem; }
+.um-who { min-width:0; }
+.um-who b { display:block; font-size:.98rem; color:var(--um-ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.um-who small { display:block; font-size:.76rem; color:var(--um-muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+.um-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:14px 0 10px; }
+
+/* beat the host page's own link styles (underline effects, padding, font size) */
+.um .um-menu a.um-item { display:block; position:relative; font-size:.9rem; font-weight:600; color:var(--um-ink); padding:0; border-radius:14px; text-decoration:none; transition:background .25s, color .25s, transform .25s; }
+.um .um-menu a.um-item::after { display:none; }
+.um .um-menu a.um-stat { padding:10px 4px; text-align:center; background:var(--um-pale); }
+.um .um-menu a.um-stat b { display:block; font-size:1.25rem; line-height:1.1; color:var(--um-deep); font-weight:800; }
+.um .um-menu a.um-stat small { display:block; margin-top:2px; font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--um-muted); }
+.um .um-menu a.um-stat:hover { background:var(--um-gold); transform:translateY(-2px); }
+.um .um-menu a.um-stat:hover b, .um .um-menu a.um-stat:hover small { color:var(--um-ink); }
+.um .um-menu a.um-row { display:flex; align-items:center; justify-content:space-between; padding:10px 12px; }
+.um .um-menu a.um-row:hover { background:var(--um-pale); transform:translateX(3px); }
+.um .um-menu a.um-row em { font-style:normal; min-width:22px; padding:1px 7px; border-radius:20px; background:var(--um-gold); font-size:.72rem; font-weight:700; text-align:center; }
+.um .um-menu a.um-out { color:#a8231b; }
+.um .um-menu a.um-out:hover { background:#fff0ee; }
+.um-sep { height:1px; margin:8px 0; background:#f0e2a0; }
+
+/* guests: small login pill next to the cart button on the gift shop */
+.um-login { display:inline-flex; align-items:center; padding:11px 20px; border-radius:999px; background:#1f1a08; color:#FFC400; font-weight:700; font-size:.85rem; text-decoration:none; transition:transform .3s, background .3s, color .3s; }
+.um-login:hover { background:#FFC400; color:#1f1a08; transform:translateY(-2px); }
+
+/* gift shop: user icon sits next to the cart button */
+.header-actions { display:flex; align-items:center; gap:12px; flex-shrink:0; }
+.header-actions .um-btn { width:52px; height:52px; border-color:#fff; background:#1f1a08; color:#FFC400; }
+.header-actions .um-btn:hover { background:#3a3210; }
+.header-actions .um-badge { background:#c0392b; color:#fff; }
+
+/* gift shop cart: tick the items you want to buy now */
+.cart-item { align-items:flex-start; }
+.cart-pick { display:grid; place-items:center; padding-top:22px; cursor:pointer; }
+.cart-pick input { width:19px; height:19px; accent-color:#FFC400; cursor:pointer; }
+.cart-hint { margin:-4px 0 10px; font-size:.74rem; color:#9e8c6e; text-align:center; }
+.cart-selall { display:flex; align-items:center; gap:8px; padding:10px 0 4px; font-size:.8rem; font-weight:600; color:#5a4a32; cursor:pointer; }
+.cart-selall input { width:17px; height:17px; accent-color:#FFC400; }
+.checkout-btn:disabled { opacity:.5; cursor:not-allowed; }
+
+/* inside the mobile slide-out menu of the home page: show the menu open, no dropdown */
+@media (max-width:960px) {
+    .nav-links .um { display:block; width:100%; }
+    .nav-links .um-btn { display:none; }
+    .nav-links .um-menu { display:block !important; position:static; width:100%; padding:0; border:0; box-shadow:none; animation:none; }
+    .nav-links .um-menu::before { display:none; }
+}

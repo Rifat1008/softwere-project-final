@@ -1,0 +1,18 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body { background: #FFFFE0; min-height: 100vh; padding: 24px; }
+.dashboard-wrapper { max-width: 480px; margin: 40px auto; background: #fff; border-radius: 40px; box-shadow: 0 20px 40px rgba(0,0,0,.05); padding: 40px; text-align: center; }
+.auth-logo img { height: 70px; margin-bottom: 20px; }
+h2 { font-family: 'Lora', serif; color: #333; margin-bottom: 10px; }
+.dashboard-wrapper > p { color: #888; font-size: .95rem; margin-bottom: 24px; }
+.panel { text-align: left; background: #FFFDF0; border: 1px solid #FFE680; border-radius: 18px; padding: 16px 18px; margin-bottom: 16px; }
+.panel h3 { font-size: .85rem; text-transform: uppercase; letter-spacing: .08em; color: #7a5c00; margin-bottom: 10px; }
+.row { display: flex; justify-content: space-between; gap: 10px; font-size: .88rem; padding: 7px 0; border-bottom: 1px dashed #f0e2a0; color: #444; }
+.row:last-child { border-bottom: 0; }
+.none { color: #888; font-size: .88rem; }
+.none a { color: #A87400; font-weight: 600; text-decoration: none; }
+.btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+.home-btn, .logout-btn { display: inline-block; padding: 12px 28px; border-radius: 12px; font-weight: 600; font-size: .95rem; text-decoration: none; transition: .3s; }
+.home-btn { background: #ffd700; color: #333; }
+.home-btn:hover { background: #e6c200; transform: translateY(-2px); }
+.logout-btn { background: #fff8e1; color: #7a5c00; border: 1px solid #ffd700; }
+.logout-btn:hover { background: #ffd700; transform: translateY(-2px); }
